@@ -6,14 +6,14 @@ function crearPopup(id) {
     const canBtn = pp.querySelector('#can');
 
     function abrirPp() {
-        overlay.classList.add('active'); // Activa la animación de overlay
-        pp.classList.add('active'); // Activa la animación del popup
+        overlay.classList.add('active');
+        pp.classList.add('active');
     }
 
     function cerrarPp() {
-        overlay.classList.remove('active'); // Oculta el overlay
-        pp.classList.remove('active'); // Oculta el popup
-        inputs.forEach(input => (input.value = '')); // Limpia los inputs
+        overlay.classList.remove('active');
+        pp.classList.remove('active');
+        inputs.forEach(input => (input.value = '')); 
     }
 
     overlay.addEventListener('click', cerrarPp);

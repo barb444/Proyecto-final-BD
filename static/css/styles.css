@@ -52,7 +52,7 @@ button:active{
     background-color: #d9d9d9c0;
     padding-left: 10%;
 }
-#lokCon{
+#lokCont{
     display: flex;
     align-items: center;
 }
@@ -61,8 +61,6 @@ svg{
     left: 65%;
     z-index: 1;
 }
-
-
 #can{
  background-color: #e66f93 ;
 }
@@ -146,4 +144,9 @@ main{
     width: 95vw;
     height: 1.5px;
     background-color: #00000018;
+}
+
+.dblis{
+    display: flex;
+
 }
