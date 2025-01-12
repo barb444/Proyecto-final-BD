@@ -23,24 +23,39 @@
 
 		    <p class="pHed">Buscar</p>
 	    </div>
-        </div>
-    </header>
-    <main>
-        <div class="main">
-            <div class="headerbd">
-                <p>Nombre</p>
-                <p>Apellido</p>
-                <p>Cédula</p>
-                <p>Sede</p>
-                <p>Cargo</p>
-                <p>Salario</p>
-                <p>Acciones</p>
+        <div class="popup" id="popup">
+            <div class="overlay" ></div>
+            <div class="popupCont">
+                <p id="titAdd">Añadir empleados</p>
+                <div class="camCont">
+                    <div class="campos">
+                        <p>Nombre</p>
+                        <p>Apellido</p>
+                        <p>Cédula</p>
+                        <p>Sede</p>
+                        <p>Cargo</p>
+                        <p>Salario</p>
+                    </div>
+                    <div class="campos">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="btnPp">
+                    <button id="can">Cancelar</button>
+                    <button id="acp">Aceptar</button>
+                </div>
+                
             </div>
             <div id="lin"></div>
 	    {% for employee in employees %}
 	    {{employee.name}}
 	    {{employee.lastname}}
-	    {{employee.cedula}}
+	    {{employee.cedula}
 	    {{employee.sede}}
 	    {{employee.charge}}
 	    {{employee.salary}}
@@ -49,5 +64,6 @@
 	    
         </div>
     </main>
+    <script src="index.js"></script>
 </body>
 </html>
