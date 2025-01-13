@@ -1,16 +1,30 @@
+:root {
+    --primary-bg: #99D2FB;
+    --secondary-bg: #368CC9;
+    --popup-bg: #bfd0dc;
+    --button-hover: brightness(90%);
+    --box-shadow: 5px 5px 4px #00000033;
+    --box-shadow-active: 5px 5px 4px #00000052;
+    --overlay-bg: #00000086;
+    --cancel-bg: #e66f93;
+    --accept-bg: #6FB4E6;
+    --filter-bg: #b4a2df;
+}
 html, body{
     height: 100%;
     margin: 0;
-    padding: 0; 
+    padding: 0;
+    font-size: 1.3vw;
 }
 body{
-    background: linear-gradient(to bottom, #99D2FB, #368CC9);
-    font-family: roboto;
+    background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-bg));
+    font-family: roboto, sans-serif;
 }
 .header{
     display: grid;
     grid-template-columns: 3fr 1fr 3fr 4fr;
-    margin: 0 2em 0em;
+    align-items: center;
+    margin: 0 2em;
 }
 #emp{
     font-size: 3vw;
@@ -23,26 +37,26 @@ button, input{
     display: flex;
     justify-content: center;
     align-items: center;
-    align-self: center;
-    box-shadow: 5px 5px 4px #00000033;
-    margin: 0px 10px;
-    border: none;
+    box-shadow: var(--box-shadow);
     font-size: 1.3vw;
+    margin: 0 10px;
+    border: none;
     color: #000000ce;
+    transition: all 0.2s ease-in-out;
 }
 button:hover{
-    filter: brightness(90%);
+    filter: var(--button-hover);
 }
 button:active{
-    filter: brightness(90%);
-    box-shadow: 5px 5px 4px #00000052;
+    filter: var(--button-hover);
+    box-shadow: var(--box-shadow-active);
     transform: translateY(4px);
 }
-#add, #acp{
-    background-color: #6FB4E6;
+#add, .acp{
+    background-color: var(--accept-bg);
 }
 #fil{
-    background-color: #b4a2df;
+    background-color: var(--filter-bg);
 }
 #lok{
     display: flex;
@@ -56,13 +70,13 @@ button:active{
     display: flex;
     align-items: center;
 }
-svg{
+#lokIcon{
     position: absolute;
     left: 65%;
     z-index: 1;
 }
-#can{
- background-color: #e66f93 ;
+.can{
+    background-color: var(--cancel-bg);
 }
 .overlay, .popup{
     position: fixed;
@@ -72,14 +86,13 @@ svg{
     width: 100%;
 }
 .overlay{
-    background-color: #00000086;
-    transition: opacity 100ms ease-in-out 200ms;
+    background-color: var(--overlay-bg);
+    transition: opacity 0.2s ease-in-out;
     z-index: 998;
 }
 .popup{
-    display: flex;
-    justify-content: center;
     display: none;
+    justify-content: center;
     z-index: 999;
 }
 .popup.active{
@@ -94,35 +107,31 @@ svg{
     width: 50vw;
     height: 40vw;
     border-radius: 15px;
-    background-color: #C5D1DA;
+    background-color: var(--popup-bg);
     z-index: 1000;
 }
-#titAdd{
+.titPp{
     font-size: 2vw;
     justify-self: center;
     align-self: center;
 }
-.camCont{
+
+.camCont, .btnPp{
     display: flex;
+    justify-content: space-around;
 }
 .campos{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding: 0 5vw 0;
-    font-size: 1.3vw;
-}
-.btnPp{
-    display: flex;
-    justify-content: space-around;
+    padding: 0 5vw;
 }
 input{
     width: 20vw;
     outline: none;
     padding-left: 5%;
 }
-
 main{
     display: grid;
     justify-content: center;
@@ -132,21 +141,37 @@ main{
     height: 75vh;
     background-color: #d9d9d9c0;
     border-radius: 15px;
-    font-size: 1.3vw;
     box-shadow: 5px 10px 4px #00000018;
+    overflow-y: auto;
 }
 .headerbd{
+    position: sticky;
+    top: 0;
+    left: 0;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    margin: 10px 1em;
+    justify-items: center;
+    background-color: var(--popup-bg);
+    padding-top: 10px;
+    height: 10vh;
+    border-bottom: 2px solid #00000018;
 }
-#lin{
-    width: 95vw;
-    height: 1.5px;
-    background-color: #00000018;
-}
-
 .dblis{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+}
+#iconsCon{
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
 
+#delCont{
+    width: 30vw;
+    height: 20vw;
 }

@@ -1,26 +1,25 @@
-function crearPopup(id) {
-    const pp = document.querySelector(id);
-    const overlay = pp.querySelector('.overlay');
-    const inputs = pp.querySelectorAll('input');
-    const acpBtn = pp.querySelector('#acp');
-    const canBtn = pp.querySelector('#can');
+function crearPopup(idPopup, btnAbrirId, btnCerrarClases) {
+    const popup = document.querySelector(idPopup);
+    const overlay = popup.querySelector(".overlay");
+    const botonesCerrar = btnCerrarClases.map((clase) => document.querySelector(clase));
+    const btnAbrir = document.querySelector(btnAbrirId);
 
-    function abrirPp() {
-        overlay.classList.add('active');
-        pp.classList.add('active');
+    function abrirPopup() {
+        popup.classList.add("active");
     }
 
-    function cerrarPp() {
-        overlay.classList.remove('active');
-        pp.classList.remove('active');
-        inputs.forEach(input => (input.value = '')); 
+    function cerrarPopup() {
+        popup.classList.remove("active");
+        const inputs = popup.querySelectorAll("input");
+        inputs.forEach((input) => (input.value = ""));
     }
 
-    overlay.addEventListener('click', cerrarPp);
-    canBtn.addEventListener('click', cerrarPp);
-
-    return abrirPp;
+    btnAbrir.addEventListener("click", abrirPopup);
+    overlay.addEventListener("click", cerrarPopup);
+    botonesCerrar.forEach((btn) => btn.addEventListener("click", cerrarPopup));
 }
 
-const popup = crearPopup('#popup');
-document.querySelector('#add').addEventListener('click', popup);
+crearPopup("#addPp","#add", [".can", ".acp"]);
+crearPopup("#filPp","#fil", [".can", ".acp"]);
+crearPopup("#delPp", "#delIcon", [".can", ".acp"]);
+crearPopup("#editPp", "#editIcon", [".can", ".acp"]);
