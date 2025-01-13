@@ -1,25 +1,30 @@
-function crearPopup(idPopup, btnAbrirId, btnCerrarClases) {
-    const popup = document.querySelector(idPopup);
-    const overlay = popup.querySelector(".overlay");
-    const botonesCerrar = btnCerrarClases.map((clase) => document.querySelector(clase));
-    const btnAbrir = document.querySelector(btnAbrirId);
-
-    function abrirPopup() {
-        popup.classList.add("active");
-    }
-
-    function cerrarPopup() {
-        popup.classList.remove("active");
-        const inputs = popup.querySelectorAll("input");
-        inputs.forEach((input) => (input.value = ""));
-    }
-
-    btnAbrir.addEventListener("click", abrirPopup);
-    overlay.addEventListener("click", cerrarPopup);
-    botonesCerrar.forEach((btn) => btn.addEventListener("click", cerrarPopup));
+function addpp(){
+    document.getElementById("addPp").style.display = "flex";
+}
+function canBtnA(){
+    document.getElementById("addPp").style.display = "none";
 }
 
-crearPopup("#addPp","#add", [".can", ".acp"]);
-crearPopup("#filPp","#fil", [".can", ".acp"]);
-crearPopup("#delPp", "#delIcon", [".can", ".acp"]);
-crearPopup("#editPp", "#editIcon", [".can", ".acp"]);
+
+function filpp(){
+    document.getElementById("filPp").style.display = "flex";
+}
+function canBtnF(){
+    document.getElementById("filPp").style.display = "none";
+}
+
+
+function delpp(){
+    document.getElementById("delPp").style.display = "flex";
+}
+function canBtnD(){
+    document.getElementById("delPp").style.display = "none";
+}
+
+
+function editpp(){
+    document.getElementById("editPp").style.display = "flex";
+}
+function canBtnE(){
+    document.getElementById("editPp").style.display = "none";
+}
