@@ -121,9 +121,6 @@ button:active{
     display: flex;
     justify-content: space-around;
 }
-.camCont{
-    margin-bottom: 2em;
-}
 .campos{
     display: flex;
     flex-direction: column;
@@ -139,11 +136,10 @@ input{
 
 #filCont{
     display: flex;
-    flex-direction: row;
-    height: 20vw;
-}
-#ppContFil{
-    height: 35vw;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-evenly;
+    padding: 0 5vw;
 }
 
 main{
@@ -201,4 +197,12 @@ main{
 }
 .iconBtn{
     width: 3vw;
+}
+#filCont{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    gap: 200em;
+    min-height: 13em;
+    background-color: #e66f93;
 }
