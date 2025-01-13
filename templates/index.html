@@ -2,68 +2,87 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static "css/styles.css" %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Vibur&display=swap" rel="stylesheet">
-    <title>Gestión de empleados</title>
-</head>
-<body>
-    <header>
-        <div class="header">
-            <p class="pHed" id="emp">Empleados</p>
-            <div class="btn" id="add"><p class="pHed">Añadir</p></div>
-            <div class="btn" id="fil"><p class="pHed">Filtros</p></div>
-            <div class="btn" id="lok">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{% static "css/styles.css" %}">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Vibur&display=swap" rel="stylesheet">
+		<title>Gestión de empleados</title>
+	</head>
+	<body>
+		<header>
+			<div class="popup" id="popup">
+				<div class="overlay" ></div>
+				<form class="popupCont" method="POST" action="{% url 'index' %}">
+					{% csrf_token %}
+					<p id="titAdd">Añadir empleados</p>
+					<div class="camCont">
+						<div class="campos">
+							<p>Nombre</p>
+							<p>Apellido</p>
+							<p>Cédula</p>
+							<p>Sede</p>
+							<p>Cargo</p>
+							<p>Salario</p>
+						</div>
+						<div class="campos">
+							<input type="text" name="name" placeholder="Nombre" value="{{ form_add.name.value }}" required>
+							<input type="text" name="lastname" placeholder="lastname" value="{{ form_add.lastname.value }}" required>
+							<input type="text" name="cedula" placeholder="Cédula" value="{{ form_add.cedula.value }}" maxlength="9" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+							<input type="text" name="sede" placeholder="sede" value="{{ form_add.sede.value }}" required>
+							<input type="text" name="charge" placeholder="charge" value="{{ form_add.charge.value }}" required>
+							<input type="text" name="salary" placeholder="Salario" value="{{ form_add.salary.value }}" maxlength="9" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
 
-		    <svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15 10.5C15 12.9853 12.9853 15 10.5 15C8.01472 15 6 12.9853 6 10.5C6 8.01472 8.01472 6 10.5 6C12.9853 6 15 8.01472 15 10.5ZM14.1793 15.2399C13.1632 16.0297 11.8865 16.5 10.5 16.5C7.18629 16.5 4.5 13.8137 4.5 10.5C4.5 7.18629 7.18629 4.5 10.5 4.5C13.8137 4.5 16.5 7.18629 16.5 10.5C16.5 11.8865 16.0297 13.1632 15.2399 14.1792L20.0304 18.9697L18.9697 20.0303L14.1793 15.2399Z" fill="#080341"></path> </g></svg>
+						</div>
+					</div>
+					<div class="btnPp">
+						<button id="can">Cancelar</button>
+						<button type="submit" id="acp">Aceptar</button>
+					</div>
 
-		    <p class="pHed">Buscar</p>
-	    </div>
-        <div class="popup" id="popup">
-            <div class="overlay" ></div>
-            <div class="popupCont">
-                <p id="titAdd">Añadir empleados</p>
-                <div class="camCont">
-                    <div class="campos">
-                        <p>Nombre</p>
-                        <p>Apellido</p>
-                        <p>Cédula</p>
-                        <p>Sede</p>
-                        <p>Cargo</p>
-                        <p>Salario</p>
-                    </div>
-                    <div class="campos">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                    </div>
-                </div>
-                <div class="btnPp">
-                    <button id="can">Cancelar</button>
-                    <button id="acp">Aceptar</button>
-                </div>
-                
-            </div>
-            <div id="lin"></div>
-	    {% for employee in employees %}
-	    {{employee.name}}
-	    {{employee.lastname}}
-	    {{employee.cedula}
-	    {{employee.sede}}
-	    {{employee.charge}}
-	    {{employee.salary}}
-	    <br>
-	    {% endfor %}
-	    
-        </div>
-    </main>
-    <script src="index.js"></script>
-</body>
+				</form>
+			</div>
+			<div class="header">
+				<p id="emp">Empleados</p>
+				<button id="add">Añadir</button>
+				<button id="fil">Filtros</button>
+				<div id="lokCont"><svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15 10.5C15 12.9853 12.9853 15 10.5 15C8.01472 15 6 12.9853 6 10.5C6 8.01472 8.01472 6 10.5 6C12.9853 6 15 8.01472 15 10.5ZM14.1793 15.2399C13.1632 16.0297 11.8865 16.5 10.5 16.5C7.18629 16.5 4.5 13.8137 4.5 10.5C4.5 7.18629 7.18629 4.5 10.5 4.5C13.8137 4.5 16.5 7.18629 16.5 10.5C16.5 11.8865 16.0297 13.1632 15.2399 14.1792L20.0304 18.9697L18.9697 20.0303L14.1793 15.2399Z" fill="#080341"></path> </g></svg>
+					<input type="text" placeholder="Buscar" id="lok">
+				</div>
+
+			</div>
+			</div>
+
+		</header>
+
+		<main>
+
+			<div class="main">
+				<div class="headerbd">
+					<p>Nombre</p>
+					<p>Apellido</p>
+					<p>Cédula</p>
+					<p>Sede</p>
+					<p>Cargo</p>
+					<p>Salario</p>
+					<p>Acciones</p>
+				</div>
+				<div id="lin"></div>
+				{% for employee in employees %}
+				<div class="dblis">
+					{{employee.name}}
+					{{employee.lastname}}
+					{{employee.cedula}}
+					{{employee.sede}}
+					{{employee.charge}}
+					{{employee.salary}}
+					<br>
+				</div>
+				{% endfor %}
+			</div>
+		</main>
+		<script src="{% static "js/index.js" %}"></script>
+	</body>
 </html>
