@@ -17,7 +17,7 @@
         <div class="overlay" ></div>
         <form class="popupCont" method="POST" action="{% url 'index' %}">
           {% csrf_token %}
-          <p id="titAdd">Añadir empleados</p>
+          <p class="titPp">Añadir empleados</p>
           <div class="camCont">
             <div class="campos">
               <p>Nombre</p>
@@ -38,8 +38,8 @@
             </div>
           </div>
           <div class="btnPp">
-            <button id="can">Cancelar</button>
-            <button type="submit" id="acp">Aceptar</button>
+            <button class="can" id="can" onclick="canBtnA()">Cancelar</button>
+            <button type="submit" class="acp" id="acp">Aceptar</button>
           </div>
 
         </form>

@@ -8,7 +8,7 @@
     --overlay-bg: #00000086;
     --cancel-bg: #e66f93;
     --accept-bg: #6FB4E6;
-    --filter-bg: #b4a2df;
+    --add-bg: #b4a2df;
 }
 html, body{
     height: 100%;
@@ -53,28 +53,11 @@ button:active{
     box-shadow: var(--box-shadow-active);
     transform: translateY(4px);
 }
-#add, .acp{
+#add{ 
+    background-color: var(--add-bg);
+}
+.acp{
     background-color: var(--accept-bg);
-}
-#fil{
-    background-color: var(--filter-bg);
-}
-#lok{
-    display: flex;
-    justify-content: start;
-    height: 5vh;
-    width: 25vw;
-    background-color: #d9d9d9c0;
-    padding-left: 10%;
-}
-#lokCont{
-    display: flex;
-    align-items: center;
-}
-#lokIcon{
-    position: absolute;
-    left: 65%;
-    z-index: 1;
 }
 .can{
     background-color: var(--cancel-bg);
@@ -136,16 +119,6 @@ input{
     outline: none;
     padding-left: 5%;
 }
-
-#filCont{
-    display: flex;
-    flex-direction: row;
-    height: 20vw;
-}
-#ppContFil{
-    height: 35vw;
-}
-
 main{
     display: grid;
     justify-content: center;
