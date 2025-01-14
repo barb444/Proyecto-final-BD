@@ -14,6 +14,19 @@ class EmployeeForm(forms.ModelForm):
         widget=forms.NumberInput(attrs={'placeholder': 'Salario'})
     )
 
+    OPCIONES_SEDE = [
+        ('', 'Seleccione una sede'),
+        ('Barcelona', 'Barcelona'),
+        ('Lechería', 'Lechería'),
+        ('Puerto La Cruz', 'Puerto La Cruz'),
+    ]
+
+    sede = forms.ChoiceField(
+        choices=OPCIONES_SEDE,
+        widget=forms.Select(attrs={'class': 'ddMenu', 'id': 'sedeAdd'}),
+        required=True
+    )
+
     class Meta:
         model = Employee
         fields = ['name', 'lastname', 'cedula', 'sede', 'charge', 'salary']

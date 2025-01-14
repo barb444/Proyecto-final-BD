@@ -1,5 +1,6 @@
 from operator import concat
 from django.db import models
+from django.http import JsonResponse
 
 class Employee(models.Model):
     name = models.CharField(max_length=200)
@@ -11,3 +12,19 @@ class Employee(models.Model):
 
     def __str__(self):
         return"{0} {1}".format(self.name,self.lastname)
+
+
+def get_employee_data(request, cedula):
+    try:
+        employee = Employee.objects.get(cedula=cedula)
+        data = {
+            'name': employee.name,
+            'lastname': employee.lastname,
+            'cedula': employee.cedula,
+            'sede': employee.sede,
+            'charge': employee.charge,
+            'salary': employee.salary,
+        }
+        return JsonResponse(data)
+    except Employee.DoesNotExist:
+        return JsonResponse({'error': 'Empleado no encontrado'}, status=404)
