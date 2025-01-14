@@ -90,7 +90,7 @@
   <div class="overlay"></div>
   <div class="popupCont" id="delCont">
     <p class="titPp">Eliminar empleado</p>
-    <p>Esta acción es irreversible</p>
+    <p id="delP">Esta acción es irreversible</p>
     <div class="btnPp">
       <form method="post" action="{% url 'delete_employee' employee.cedula %}" class="deleteForm{{ employee.cedula }}" id="deleteForm" style="display: inline;">
         {% csrf_token %}
@@ -106,7 +106,7 @@
 
 <form class="popupCont" method="POST" action="{% url 'update_employee' employee.cedula %}">
   {% csrf_token %}
-  <p id="titAdd">Actualizar empleado</p>
+  <p class="titPp">Actualizar empleado</p>
   <div class="camCont">
     <div class="campos">
       <p>Nombre</p>

@@ -14,11 +14,11 @@ html, body{
     height: 100%;
     margin: 0;
     padding: 0;
-    font-size: 1.3vw;
 }
 body{
-    background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-bg));
+    background: linear-gradient(to bottom, var(--primary-bg) 5%, var(--secondary-bg));
     font-family: roboto, sans-serif;
+    font-size: 1.3vw;
 }
 .header{
     display: grid;
@@ -53,10 +53,7 @@ button:active{
     box-shadow: var(--box-shadow-active);
     transform: translateY(4px);
 }
-#add{ 
-    background-color: var(--add-bg);
-}
-.acp{
+#add, .acp{ 
     background-color: var(--accept-bg);
 }
 .can{
@@ -71,7 +68,6 @@ button:active{
 }
 .overlay{
     background-color: var(--overlay-bg);
-    transition: opacity 0.2s ease-in-out;
     z-index: 998;
 }
 .popup{
@@ -99,7 +95,6 @@ button:active{
     justify-self: center;
     align-self: center;
 }
-
 .camCont, .btnPp{
     display: flex;
     justify-content: space-around;
@@ -163,8 +158,9 @@ main{
     width: 30vw;
     height: 20vw;
 }
-.pHldr{
-     color: gray;
+#deP{
+    display: flex;
+    justify-content: center;
 }
 .ddMenu{
     width: 30vw;
