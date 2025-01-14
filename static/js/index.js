@@ -17,6 +17,7 @@ function canBtnF(){
 let form_d = ''
 let cedula = 0
 
+
 function delpp(cedula_n){
   document.getElementById("delPp").style.display = "flex";
   form_d = document.getElementsByClassName("deleteForm" + cedula_n);
