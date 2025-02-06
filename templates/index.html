@@ -102,13 +102,12 @@
 </div> 
 <div class="popup" id="editPp">
   <div class="overlay"></div>
- 
-
-<form class="popupCont" method="POST" action="{% url 'update_employee' employee.cedula %}">
+<form class="popupCont" method="POST" id="popupEditForm">
   {% csrf_token %}
   <p class="titPp">Actualizar empleado</p>
   <div class="camCont">
     <div class="campos">
+
       <p>Nombre</p>
       <p>Apellido</p>
       <p>Cédula</p>
@@ -117,20 +116,20 @@
       <p>Salario</p>
     </div>
     <div class="campos">
+      <input type="hidden" name="cedula" id="cedulaInput">
       <input type="text" name="name" placeholder="Nombre" required>
       <input type="text" name="lastname" placeholder="Apellido" required>
-      <input type="text" name="cedula" placeholder="Cédula" maxlength="9" oninput="this.value = this.value.replace(/[^0-9]/g, '')"  required>
+      <input type="text" name="cedula" placeholder="Cédula" id="theCedula" maxlength="9" oninput="this.value = this.value.replace(/[^0-9]/g, '')" readonly>
       
-      <!-- Usando {{ form_add.sede }} directamente -->
       {{ form_add.sede }}
       
       <input type="text" name="charge" placeholder="Cargo" required>
-      <input type="number" name="salary" placeholder="Salario" maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+      <input type="text" name="salary" placeholder="Salario" maxlength="7" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
     </div>
   </div>
   <div class="btnPp">
     <button class="can" onclick="canBtnE()">Cancelar</button>
-    <button class="acp">Actualizar</button>
+    <button class="acp" onclick="submitEdit()">Actualizar</button>
   </div>
 </form>
 </div>

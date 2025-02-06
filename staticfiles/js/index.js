@@ -1,6 +1,6 @@
 function addpp(){
     document.getElementById("addPp").style.display = "flex";
-  console.log('holas')
+  console.log('holasdasda')
 }
 function canBtnA(){
     document.getElementById("addPp").style.display = "none";
@@ -45,6 +45,7 @@ let cedula_e = 0
 function editpp(cedula_n) {
   // Mostrar el popup
   document.getElementById("editPp").style.display = "flex";
+  console.log('cd=',cedula_n)
   
   // No es necesario modificar los valores de los campos
   // Solo mostramos el formulario de edición.

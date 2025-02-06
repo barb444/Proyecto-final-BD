@@ -1,11 +1,9 @@
 function addpp(){
     document.getElementById("addPp").style.display = "flex";
-  console.log('holas')
 }
 function canBtnA(){
     document.getElementById("addPp").style.display = "none";
 }
-
 
 function filpp(){
     document.getElementById("filPp").style.display = "flex";
@@ -16,7 +14,6 @@ function canBtnF(){
 
 let form_d = ''
 let cedula = 0
-
 
 function delpp(cedula_n){
   document.getElementById("delPp").style.display = "flex";
@@ -46,6 +43,10 @@ let cedula_e = 0
 function editpp(cedula_n) {
   // Mostrar el popup
   document.getElementById("editPp").style.display = "flex";
+  console.log('cd=',cedula_n)
+  document.getElementById('cedulaInput').value = cedula_n;
+  document.getElementById('theCedula').value = cedula_n;
+  
   
   // No es necesario modificar los valores de los campos
   // Solo mostramos el formulario de edición.
@@ -53,6 +54,16 @@ function editpp(cedula_n) {
   // Si deseas hacer algo más, como almacenar la cédula para enviar con el formulario, puedes hacerlo aquí.
   cedula_e = cedula_n;
 }
+function submitEdit() {
+  let cedula_n = ''  
+  cedula_n = document.getElementById('cedulaInput').value;
+
+  let form = document.getElementById("popupEditForm");
+  form.action="/update/"+cedula_n+"/";
+  form.submit();
+ 
+}
+
 function canBtnE(){
     document.getElementById("editPp").style.display = "none";
 }
