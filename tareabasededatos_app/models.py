@@ -13,7 +13,6 @@ class Employee(models.Model):
     def __str__(self):
         return"{0} {1}".format(self.name,self.lastname)
 
-
 def get_employee_data(request, cedula):
     try:
         employee = Employee.objects.get(cedula=cedula)
